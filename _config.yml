@@ -92,6 +92,8 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: landscape
+theme_config:
+  banner: "https://iebya-blog.oss-cn-beijing.aliyuncs.com/%E6%99%9A%E9%9C%9E.jpg"
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
