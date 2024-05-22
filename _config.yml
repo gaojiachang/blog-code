@@ -106,6 +106,6 @@ theme_config:
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: git@github.com:gaojiachang/gaojiachang.github.io.git
+  repo: git@github.com:gaojiachang/gaojiachang.github.io.git #使用ssh协议，防止输入用户名和密码以及网络链接问题
   branch: main
-  message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}"
+  message: "Site updated: {{ now('DD HH:mm:ss') }}"
