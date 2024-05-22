@@ -108,4 +108,4 @@ deploy:
   type: git
   repo: git@github.com:gaojiachang/gaojiachang.github.io.git #使用ssh协议，防止输入用户名和密码以及网络链接问题
   branch: main
-  message: "Site updated: {{ now('DD HH:mm:ss') }}"
+  message: "Site updated: {{ now('DD HH:mm:ss') }}" #很奇怪的解析 如果前面有YYYY-MM，会解析出错，直接DD也会解析年和月
