@@ -11,7 +11,8 @@ timezone: 'Asia/Shanghai'
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://gaojiachang.github.io
-permalink: :year/:month/:day/:title/
+# permalink: :year/:month/:day/:title/
+permalink: :title/  #如果加year之类的，会造成图片资源无法加载，这实际上是一个路径的问题，构造src的时候，不会加上year等
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
@@ -36,7 +37,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true # 创建文章时，同时创建一个同名文件夹，用于存放图片等资源
 relative_link: false
 future: true
 syntax_highlighter: highlight.js
@@ -50,6 +51,11 @@ prismjs:
   preprocess: true
   line_number: true
   tab_replace: ''
+  
+#启用后，资源图片将会被自动解析为其对应文章的路径。
+marked:
+  prependRoot: true
+  postAsset: true
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -100,6 +106,6 @@ theme_config:
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/gaojiachang/gaojiachang.github.io.git
+  repo: git@github.com:gaojiachang/gaojiachang.github.io.git
   branch: main
   message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}"
