@@ -31,7 +31,7 @@ tags:
         <mapper class="com.iebya.mapper.UserMapper"/>
     </mappers>
 </configuration>
-```  
+```
 这里注意，`<mapper>`标签，当我们使用@Select等注解时，这个标签要这么写:
 ```xml
 <mapper class="com.iebya.mapper.UserMapper"/>
@@ -41,7 +41,6 @@ tags:
 <mapper resource="com/iebya/mapper/UserMapper.xml"/>
 ```
 反正只要出现sql语句的地方，都要加入`<mappers>`标签，不然mybatis加载的时候找不到入口。
-
 ### 单例模式，配置MybatisUtil类
 ```java
 public class MybatisUtil {
@@ -60,19 +59,17 @@ public class MybatisUtil {
         return sqlSessionFactory;
     }
 }
-```  
+```
 这里主要涉及到一个sqlSessionFactory的创建，这个类是mybatis的核心类，用于创建sqlSession，sqlSession是用于执行sql语句的。而sqlSessionFactory官方文档推荐一个项目创建一个就可以，全程使用。
-
 ### mapper接口
 mapper层只需要定义接口，这里给个示范
-![alt text](./android-studio下使用mybatis/image/image-1.png)
+![alt text](./android-studio下使用mybatis/image-1.png)
 ```java
 public interface UserMapper {
     @Select("select * from user where name = #{name} and password = #{password}")
     List<User> login(User user);
 }
 ```
-
 ### service层使用mybatis
 需要openSession；然后getMapper，用于给UserMapper接口实例化；用完closeSession，可以考试使用`try-with-resources`语法糖。
 ```java
